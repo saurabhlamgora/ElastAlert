@@ -1,0 +1,23 @@
+rules_folder: alert_rules
+
+run_every:
+  seconds: 10
+buffer_time:
+   seconds: 10
+es_host: localhost
+
+es_port: 9200
+
+
+
+
+
+
+
+
+
+writeback_index: elastalert_status
+writeback_alias: elastalert_alerts
+
+alert_time_limit:
+  days: 2
