@@ -1,0 +1,26 @@
+rules_folder: alert_rules
+#run_every:
+#  seconds: 10
+#buffer_time:
+#  seconds: 10
+es_host: localhost
+es_port: 9200
+name: Exception rule
+type: frequency
+index: filebeat-*
+num_events: 1
+writeback_index: elastalert_status
+timeframe:
+    hours: 1
+filter:
+- query_string:
+    query: "message:*exception* OR message:*cart*"
+#    query: "message:*cart*"
+alert:
+- "email"
+email:
+- "saurabh.lamgora@abc.com"
+smtp_host: localhost
+smtp_port: 25
+smtp_ssl: false
+from_addr: "ELK@abc.com"
